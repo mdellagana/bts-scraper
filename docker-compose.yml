@@ -1,0 +1,16 @@
+version: '3'
+services:
+  bts-scraper:
+    image: 'bts-scraper'
+    container_name: bts-scraper-instance
+    tty: true
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./:/bts-scraper
+    networks: 
+      - default
+networks:
+  mongo:
+    driver: bridge
